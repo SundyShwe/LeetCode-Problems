@@ -48,7 +48,7 @@ const groupAnagramsBetter = (strs) => {
             const charCode = char.charCodeAt(0) - 'a'.charCodeAt(0); //here a = 0, b = 1, c= 2, d=3 etc 
             charMap[charCode] = 1;
         }
-        //after this charMap will be [1,1,1,0,0,0...] for 'abc'
+        //after this, charMap will be [1,1,1,0,0,0...] for 'abc'
 
         const key = charMap.join(''); //now we get an id-like number, so 'abc', 'bac', cba' all wll have '11100000....'
 

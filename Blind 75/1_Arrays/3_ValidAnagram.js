@@ -40,9 +40,25 @@ const isAnagram = (s, t) => {
     return true;
 }
 
+const isAnagramWithObject = (s, t) => {
+    if (s.length !== t.length) return false;
+    //instead of map, let's use object { char : count};
+    //then the code will become more simple
+    const charMap = {};
+    for (let char of s) {
+        !charMap[char] ? charMap[char] = 1 : charMap[char]++;
+    }
+
+    for (let char of t) {
+        if (!charMap[char] || charMap[char] === 0) return false;
+        charMap[char]--;
+    }
+    return true;
+}
+
 const s = 'anagram';
 const t = 'nagraam';
-console.log('is anagram', isAnagram(s, t));
+console.log('is anagram', isAnagramWithObject(s, t));
 console.log('is anagram', isAnagramTwo(s, t));
 
 //easy ES6 way
